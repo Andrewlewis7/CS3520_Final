@@ -1,0 +1,49 @@
+<diagram program="umletino" version="15.1"><zoom_level>7</zoom_level><element><id>UMLClass</id><coordinates><x>70</x><y>308</y><w>182</w><h>56</h></coordinates><panel_attributes>Author
+--
+AuthorID: VARCHAR(20) (P-Key) NOT NULL
+FirstName: VARCHAR(50) NOT NULL
+LastName: VARCHAR(50)
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>91</x><y>406</y><w>280</w><h>112</h></coordinates><panel_attributes>Book
+--
+BookID: UNSIGNED INT (Primary Key) AUTOINCREMENT NOT NULL
+Title: VARCHAR(100) NOT NULL
+Genre: VARCHAR(100) NOT NULL
+Author: VARCHAR(100) NOT NULL
+Price: DECIMAL(4,2) NOT NULL
+PublicationYear: UNSIGNED INT NOT NULL
+BookStatus: VARCHAR(20)
+DateCheckedOut: DATE
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>441</x><y>329</y><w>273</w><h>63</h></coordinates><panel_attributes>Sale
+--
+SaleID: UNSIGNED INT (Primary Key) AUTOINCREMENT NOT NULL
+BookID: UNSIGNED INT (Foreign Key) AUTOINCREMENT NOT NULL
+Quantity: INT
+Date: DATE
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>203</x><y>161</y><w>294</w><h>77</h></coordinates><panel_attributes>Payment
+--
+PaymentID: UNSIGNED INT (Primary Key) AUTOINCREMENT NOT NULL
+FineID: INT (Foreign Key)
+CustomerID: VARCHAR(6) (Foreign Key) NOT NULL
+PaymentType: VARCHAR(20)
+PaymentAmount: DECIMAL
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>532</x><y>462</y><w>210</w><h>70</h></coordinates><panel_attributes>Customer
+--
+CustomerID: VARCHAR(6) (Primary Key) NOT NULL
+FirstName: VARCHAR(50) NOT NULL
+LastName: VARCHAR(50)
+CheckoutQuantity: INT
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>441</x><y>35</y><w>210</w><h>63</h></coordinates><panel_attributes>Reserve
+--
+CustomerID: VARCHAR(6) (Foreign Key) NOT NULL
+SaleID: INT (Foreign Key)
+BookID: INT (Foreign Key)
+ReserveDate: DATE NOT NULL
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>602</x><y>147</y><w>294</w><h>63</h></coordinates><panel_attributes>Fine
+--
+FineID: UNSIGNED INT (Primary Key) AUTOINCREMENT NOT NULL
+CustomerID: VARCHAR(6) (Foreign Key)
+FineDate: DATE
+FineAmount: DECIMAL
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>126</x><y>119</y><w>133</w><h>28</h></coordinates><panel_attributes>lt=&lt;-
+m1=0..n</panel_attributes><additional_attributes>10;10;170;10</additional_attributes></element><element><id>Relation</id><coordinates><x>133</x><y>49</y><w>133</w><h>28</h></coordinates><panel_attributes>lt=&lt;-
+m1=0..n</panel_attributes><additional_attributes>10;10;170;10</additional_attributes></element></diagram>
